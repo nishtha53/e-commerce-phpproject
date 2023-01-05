@@ -11,7 +11,7 @@
     <title>E-commerce Project</title>
   </head>
   <body>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+  <nav class="navbar  navbar-expand-lg navbar-light">
   <a class="navbar-brand" href="#"><img  src="images/logo.jpeg" height="80px" width="150px"  /> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
     <span class="navbar-toggler-icon"></span>
@@ -27,13 +27,12 @@
         <ul style="list-style: none;">
 		<li class="nav-item"><a class="nav-link" href="#"><img src="images/add-to-basket.png" width="40px" height="40px"></a></li>
         </ul>
-        <a class="btn btn-warning mx-4" href="#">Login</a>
-        <a class="btn btn-warning mx-4" href="#">Register</a>
+        <a class="btn btn-warning mx-4" href="login.php">Login</a>
+        <a class="btn btn-warning mx-4" href="register.php">Register</a>
   </div> <!-- navbar-collapse.// -->
 
   </div>
 </nav>
-
 <!-- <footer class="site-footer">
         <div class="container">
             <div class="row">

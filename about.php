@@ -33,8 +33,8 @@
             <ul style="list-style: none;">
                 <li class="nav-item"><a class="nav-link" href="#"><img src="images/add-to-basket.png" width="40px" height="40px"></a></li>
             </ul>
-            <a class="btn btn-warning mx-4" href="#">Login</a>
-            <a class="btn btn-warning mx-4" href="#">Register</a>
+            <a class="btn btn-warning mx-4" href="login.php">Login</a>
+            <a class="btn btn-warning mx-4" href="register.php">Register</a>
         </div> <!-- navbar-collapse.// -->
     </nav>
 
@@ -127,8 +127,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">
-                    <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
-                        <a href="#">Scanfcode</a>.
+                    <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
+                        <a href="#">Medico</a>.
                     </p>
                 </div>
 
