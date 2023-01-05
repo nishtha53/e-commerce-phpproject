@@ -92,7 +92,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="contact.php">
+        <a class="nav-link " href="contact_admin.php">
           <i class="bi bi-grid"></i>
           <span>Contact us</span>
         </a>
@@ -119,7 +119,7 @@
     </div>
     <div class="card" style="width: 20rem;">
       <div class="card-body">
-        <h5 class="card-title"><a href="contact.php">Contact US</a></h5>
+        <h5 class="card-title"><a href="contact_admin.php">Contact US</a></h5>
         <p class="card-text">View Queries of Customer</p>
       </div>
     </div>

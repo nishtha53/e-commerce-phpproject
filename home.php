@@ -21,7 +21,7 @@
 		<ul class="navbar-nav mx-auto">
 			<li class="nav-item active"> <a class="nav-link mx-4" href="#">Home </a> </li>
 			<li class="nav-item"><a class="nav-link mx-4" href="about.php"> About </a></li>
-			<li class="nav-item"><a class="nav-link mx-4" href="#">Contact us</a></li>
+			<li class="nav-item"><a class="nav-link mx-4" href="contact.php">Contact us</a></li>
             
 		</ul>
         <ul style="list-style: none;">

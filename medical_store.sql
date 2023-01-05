@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2023 at 05:52 PM
+-- Generation Time: Jan 05, 2023 at 11:40 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -75,6 +75,15 @@ CREATE TABLE `product` (
   `image` varchar(500) COLLATE utf8mb4_unicode_nopad_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_nopad_ci;
 
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`prod_no`, `prod_name`, `description`, `unit`, `price`, `image`) VALUES
+(35, 'Tshirt', 'thirts', 'kg', 1, 'assets/img/dr2 (1).png'),
+(36, 'shurt', 'bdjs', 'mg', 45, 'assets/img/login (2).png'),
+(37, 'shurt', 'bdjs', 'mg', 45, 'assets/img/login (2).png');
+
 -- --------------------------------------------------------
 
 --
@@ -86,7 +95,7 @@ CREATE TABLE `user` (
   `username` varchar(30) COLLATE utf8mb4_unicode_nopad_ci NOT NULL,
   `password` varchar(20) COLLATE utf8mb4_unicode_nopad_ci NOT NULL,
   `contact_no` int(10) NOT NULL,
-  `address` varchar(100) COLLATE utf8mb4_unicode_nopad_ci NOT NULL,
+  `address` varchar(100) COLLATE utf8mb4_unicode_nopad_ci DEFAULT NULL,
   `email` varchar(20) COLLATE utf8mb4_unicode_nopad_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_nopad_ci;
 
@@ -142,7 +151,7 @@ ALTER TABLE `order_table`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `prod_no` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `prod_no` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `user`

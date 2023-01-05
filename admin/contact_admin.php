@@ -97,103 +97,13 @@
                     <span>Contact us</span>
                 </a>
             </li>
+
+
         </ul>
 
-    </aside><!-- End Sidebar-->
+    </aside>
 
-    <!-- <main id="main" class="main">
+<main id="main" class="main"></main>
 
-        <div class="container">
-            <form method="POST" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="productname">Product Name:</label><br>
-                    <input type="text" class="form-control" id="product" placeholder="Product name" name="pname">
-                </div><br>
-                <div class="form-group">
-                    <label for="productname">Description</label><br>
-                    <input type="text" class="form-control" id="description" placeholder="Enter Description" name="description">
-                </div><br>
-                <div class="form-group">
-                    <label for="productname">Unit</label><br>
-                    <input type="text" class="form-control" id="unit" placeholder="Enter Unit" name="unit">
-                </div><br>
-                <div class="form-group">
-                    <label for="productname">Price</label><br>
-                    <input type="number" class="form-control" id="price" placeholder="Enter Price" name="price">
-                </div><br>
-                <div class="form-group">
-                    <input type="file" class="form-control" id="image" name="upload">
-                </div><br>
-                <input type="submit" class="btn btn-primary btn-lg  float-right" value="Add Product" name="submit" />-->
-               <main id="main" class="main">
-<?php
-
-include 'connection.php';
-
-$query = "SELECT * from product;";
-
-$data = mysqli_query($conn, $query);
-$total = mysqli_num_rows($data);
-
-
-?> 
-
-	<h2 >View Products</h2><br>
-    <button class="btn btn-primary"><a href="./addproduct.php" class="text-white">Add Product</a></button><br><br>
-	<table class="table">
-		<tr>
-			<th width="5%">#</th>
-			<th width="12%">Product Name</th>
-			<th width="10%">Description</th>
-			<th width="10%">Unit</th>
-            <th width="10%">Price</th>
-            <th width="10%">Image</th>
-			<th width="8%">Edit</th>
-			<th width="8%">Delete</th>
-		</tr>
-
-
-	<?php
-
-	while ($result = mysqli_fetch_assoc($data)) {
-		echo "<tr>
-        <td>" . $result["prod_no"] . "</td>
-        <td>" . $result["prod_name"] . "</td>
-        <td>" . $result["description"] . "</td>
-        <td>" . $result["unit"] . "</td>
-        <td>" . $result["price"] . "</td>
-        <td><img src='" . $result["image"] . "' alt='image' height='100px' width='100px' /></td>
-        <td><button class='btn btn-warning'><a href='edit_product.php?pid=$result[prod_no]'  class='text-white'>Edit</a></button></td>
-        <td><button class='btn btn-danger'><a href='delete_product.php?pid=$result[prod_no]' class='text-white'>Delete</a></button></td>";
-	}
-	echo "</table>";
-
-
-	?>
-            </form>
-        </div>
-    </main> 
-
-
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-    <!---Vendor JS Files -->
-    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/chart.js/chart.umd.js"></script>
-    <script src="assets/vendor/echarts/echarts.min.js"></script>
-    <script src="assets/vendor/quill/quill.min.js"></script>
-    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-
-    <!---Template Main JS File-->
-    <script src="assets/js/main.js"></script> 
-
-
-
-
-    
-</html>
+    </html>
 </body>
