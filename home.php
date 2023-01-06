@@ -105,23 +105,20 @@ $total = mysqli_num_rows($data);
 
 while ($result = mysqli_fetch_assoc($data)) {
     echo "
-    <div class='container'>
-        <div class='row'>
-            <div class='col-sm'>
-                <div class='card style='width: 20rem;'>
-                <img class='card-img-top' src='" . $result["image"] . "' alt='Card image'>
-                <div class='card-body'>
-                     <h5 class='card-title'>" . $result["prod_name"] . "</h5>
-                     <p class='card-text'>" . $result["description"] . "</p>
-                    <p class='card-text'>" . $result["unit"] . "</p>
-                    <h5 class='card-text'>" . $result["price"] . "</h5>
-                    <a href='addtocart.php' class='btn btn-primary'>Add to card</a>
-                </div>
-            </div>
+        <div class='col-md-3'>
+        <div class='card' style='width: 20rem;'>
+        <img class='card-img-top' src='./admin/" . $result["image"] . "' alt='Card image'>
+        <div class='card-body'>
+             <h5 class='card-title'>" . $result["prod_name"] . "</h5>
+             <p class='card-text'>" . $result["description"] . "</p>
+            <p class='card-text'>" . $result["unit"] . "</p>
+            <h5 class='card-text'>" . $result["price"] . "</h5>
+            <a href='addtocart.php' class='btn btn-primary'>Add to card</a>
         </div>
     </div>
-</div>
+    </div>
 ";
 }
-
 ?>
+
+
