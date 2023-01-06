@@ -103,7 +103,61 @@
 
     </aside>
 
-<main id="main" class="main"></main>
+    <main id="main" class="main">
+<?php
 
-    </html>
+include 'connection.php';
+
+$query = "SELECT * from contact;";
+
+$data = mysqli_query($conn, $query);
+$total = mysqli_num_rows($data);
+
+
+?> 
+
+	<h2 class="text-center">View Customer entries</h2><br>
+	<table class="table">
+		<tr>
+			<th width="5%">First Name</th>
+			<th width="12%">Last Name</th>
+			<th width="10%">Email</th>
+			<th width="10%">Contact</th>
+            <th width="10%">Message</th>
+		</tr>
+
+
+	<?php
+
+	while ($result = mysqli_fetch_assoc($data)) {
+		echo "<tr>
+        <td>" . $result["fname"] . "</td>
+        <td>" . $result["lname"] . "</td>
+        <td>" . $result["email"] . "</td>
+        <td>" . $result["contact"] . "</td>
+        <td>" . $result["message"] . "</td>";
+	}
+	echo "</table>";
+
+
+	?>
+    </main> 
+
+
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!---Vendor JS Files -->
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="assets/vendor/echarts/echarts.min.js"></script>
+    <script src="assets/vendor/quill/quill.min.js"></script>
+    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!---Template Main JS File-->
+    <script src="assets/js/main.js"></script>   
+</html>
 </body>

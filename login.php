@@ -62,7 +62,7 @@
 						</div>
 						<div class="form-check">
 							<input type="checkbox" class="form-check-input" id="exampleCheck1">
-							<label class="form-check-label" for="exampleCheck1">Check me out</label>
+							<label class="form-check-label" for="exampleCheck1">Remember me</label>
 						</div><br>
 						<p><a href="register.php" class="text-muted">Need to Register? Signup</a></p>
 						<input type="submit" class="btn btn-primary" id="submit-btn" value="Login" name="login"></input>
@@ -138,7 +138,6 @@
 
 	include ("./admin/connection.php");
 
-	//session_start();
 
 	if(isset($_POST['login']))
 	{

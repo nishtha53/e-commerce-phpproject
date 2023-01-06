@@ -9,6 +9,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>E-commerce Project</title>
 </head>
 
@@ -35,7 +38,36 @@
 
         </div>
     </nav>
-    <!-- <footer class="site-footer">
+
+    <?php
+
+include 'admin/connection.php';
+
+$query = "SELECT * from product;";
+
+$data = mysqli_query($conn, $query);
+$total = mysqli_num_rows($data);
+
+while ($result = mysqli_fetch_assoc($data)) {
+    echo "
+        <div class='col-md-3'>
+        <div class='card' style='width: 20rem;'>
+        <img class='card-img-top' src='./admin/" . $result["image"] . "' alt='Card image'>
+        <div class='card-body'>
+             <h5 class='card-title'>" . $result["prod_name"] . "</h5>
+             <p class='card-text'>" . $result["description"] . "</p>
+            <p class='card-text'>" . $result["unit"] . "</p>
+            <h5 class='card-text'>" . $result["price"] . "</h5>
+            <a href='addtocart.php' class='btn btn-primary'>Add to card</a>
+        </div>
+    </div>
+    </div>
+";
+}
+?>
+
+
+    <footer class="site-footer">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
@@ -84,7 +116,7 @@
                 </div>
             </div>
         </div>
-    </footer> -->
+    </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -94,31 +126,6 @@
 
 </html>
 
-<?php
 
-include 'admin/connection.php';
-
-$query = "SELECT * from product;";
-
-$data = mysqli_query($conn, $query);
-$total = mysqli_num_rows($data);
-
-while ($result = mysqli_fetch_assoc($data)) {
-    echo "
-        <div class='col-md-3'>
-        <div class='card' style='width: 20rem;'>
-        <img class='card-img-top' src='./admin/" . $result["image"] . "' alt='Card image'>
-        <div class='card-body'>
-             <h5 class='card-title'>" . $result["prod_name"] . "</h5>
-             <p class='card-text'>" . $result["description"] . "</p>
-            <p class='card-text'>" . $result["unit"] . "</p>
-            <h5 class='card-text'>" . $result["price"] . "</h5>
-            <a href='addtocart.php' class='btn btn-primary'>Add to card</a>
-        </div>
-    </div>
-    </div>
-";
-}
-?>
 
 

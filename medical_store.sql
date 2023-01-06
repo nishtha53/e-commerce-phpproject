@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2023 at 11:40 AM
+-- Generation Time: Jan 06, 2023 at 11:35 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -33,6 +33,30 @@ CREATE TABLE `cart` (
   `qty_odered` int(4) NOT NULL,
   `user_id` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_nopad_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `fname` varchar(20) COLLATE utf8mb4_unicode_nopad_ci NOT NULL,
+  `lname` varchar(20) COLLATE utf8mb4_unicode_nopad_ci NOT NULL,
+  `email` varchar(30) COLLATE utf8mb4_unicode_nopad_ci NOT NULL,
+  `contact` int(10) NOT NULL,
+  `message` varchar(50) COLLATE utf8mb4_unicode_nopad_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_nopad_ci;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`fname`, `lname`, `email`, `contact`, `message`) VALUES
+('Nishtha', 'thakkar', 'nishthathakkar0503@gmail.com', 0, 'working '),
+('Nishtha', 'thakkar', 'nishthathakkar0503@gmail.com', 0, 'query submitted'),
+('Nishtha', 'thakkar', 'nishthathakkar0503@gmail.com', 0, 'hiii working'),
+('Nishtha', 'thakkar', 'nishthathakkar0503@gmail.com', 0, 'submitted');
 
 -- --------------------------------------------------------
 
@@ -80,9 +104,9 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`prod_no`, `prod_name`, `description`, `unit`, `price`, `image`) VALUES
-(35, 'Tshirt', 'thirts', 'kg', 1, 'assets/img/dr2 (1).png'),
-(36, 'shurt', 'bdjs', 'mg', 45, 'assets/img/login (2).png'),
-(37, 'shurt', 'bdjs', 'mg', 45, 'assets/img/login (2).png');
+(1, 'tshirt', 'men,women', '2 piece', 100, 'assets/img/product-2.jpg'),
+(2, 'shirt', 'men ', '1', 100, 'assets/img/product-4.jpg'),
+(3, 'prod', 'ncbcn', '2', 120, 'assets/img/product-4.jpg');
 
 -- --------------------------------------------------------
 
@@ -98,6 +122,16 @@ CREATE TABLE `user` (
   `address` varchar(100) COLLATE utf8mb4_unicode_nopad_ci DEFAULT NULL,
   `email` varchar(20) COLLATE utf8mb4_unicode_nopad_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_nopad_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `username`, `password`, `contact_no`, `address`, `email`) VALUES
+(1, 'nish', 'nish', 2147483647, NULL, 'nishthathakkar0503@g'),
+(2, 'user', 'nish', 2147483647, NULL, 'nishtha@gmail.com'),
+(4, 'abc', 'nish', 2147483647, NULL, 'abc@gmail.com'),
+(5, 'nish', 'nish', 13225154, NULL, 'nish12@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -151,13 +185,13 @@ ALTER TABLE `order_table`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `prod_no` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `prod_no` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
