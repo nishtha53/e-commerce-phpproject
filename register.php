@@ -69,10 +69,10 @@
               <label for="exampleInputPassword1">Password</label>
               <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="exampleInputPassword2">Re-type Password</label>
               <input type="password" class="form-control" id="exampleInputPassword2" name="rpassword" placeholder="Re-type Password">
-            </div>
+            </div> -->
             <p><a href="login.php" class="text-muted">Already Register? Login</a></p>
             <input type="submit" class="btn btn-primary" id="submit-btn" value="Register" name="submit"></input>
 
@@ -155,10 +155,11 @@ if (isset($_POST["submit"])) {
   $email = $_POST["email"];
   // echo "<script>alert('$unm,$pass,$contact,$email');</script>";
 
+
   $qry = "insert into user(username,password,contact_no,email) values('$unm','$pass','$contact','$email')";
   $sql = mysqli_query($conn, $qry);
   if ($sql) {
-    echo "<script>alert('insert');location='home.php';</script>";
+    echo "<script>alert('Registeration is done');location='login.php';</script>";
   }
 }
 

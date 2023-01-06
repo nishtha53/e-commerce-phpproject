@@ -137,22 +137,34 @@
 <?php
 
 	include ("./admin/connection.php");
+
+	session_start();
+
 	if(isset($_POST['submit']))
 	{
 		$email = $_POST["email"];
 		$pass = $_POST["pass"];
    	//	echo "<script>alert('$email');</script>";
 
+		if($email == 'admin@gmail.com')
+		{
+			header('location:admin/index.php');
+		}
+		else if ($email ){
 		$qry = "select * from user where email = '$email' AND password = '$pass'";
 		$sql = mysqli_query($conn,$qry);
 		$result = mysqli_fetch_array($sql);
 		if($result > 0)
 		{
 			$email = $result["email"];
-		
 			echo "<script>alert('login success');location='home.php';</script>";
-
 		}
 	}
+	else
+	{
+		echo "User doesnot exist!";
+	}
+}
+	
 
 ?>

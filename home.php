@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,31 +10,32 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>E-commerce Project</title>
-  </head>
-  <body>
-  <nav class="navbar  navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="#"><img  src="images/logo.jpeg" height="80px" width="150px"  /> </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="main_nav">
-  	
-		<ul class="navbar-nav mx-auto">
-			<li class="nav-item active"> <a class="nav-link mx-4" href="#">Home </a> </li>
-			<li class="nav-item"><a class="nav-link mx-4" href="about.php"> About </a></li>
-			<li class="nav-item"><a class="nav-link mx-4" href="contact.php">Contact us</a></li>
-            
-		</ul>
-        <ul style="list-style: none;">
-		<li class="nav-item"><a class="nav-link" href="#"><img src="images/add-to-basket.png" width="40px" height="40px"></a></li>
-        </ul>
-        <a class="btn btn-warning mx-4" href="login.php">Login</a>
-        <a class="btn btn-warning mx-4" href="register.php">Register</a>
-  </div> <!-- navbar-collapse.// -->
+</head>
 
-  </div>
-</nav>
-<!-- <footer class="site-footer">
+<body>
+    <nav class="navbar  navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#"><img src="images/logo.jpeg" height="80px" width="150px" /> </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main_nav">
+
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item active"> <a class="nav-link mx-4" href="#">Home </a> </li>
+                <li class="nav-item"><a class="nav-link mx-4" href="about.php"> About </a></li>
+                <li class="nav-item"><a class="nav-link mx-4" href="contact.php">Contact us</a></li>
+
+            </ul>
+            <ul style="list-style: none;">
+                <li class="nav-item"><a class="nav-link" href="#"><img src="images/add-to-basket.png" width="40px" height="40px"></a></li>
+            </ul>
+            <a class="btn btn-warning mx-4" href="login.php">Login</a>
+            <a class="btn btn-warning mx-4" href="register.php">Register</a>
+        </div> <!-- navbar-collapse.// -->
+
+        </div>
+    </nav>
+    <!-- <footer class="site-footer">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
@@ -88,5 +90,38 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+</body>
+
 </html>
+
+<?php
+
+include 'admin/connection.php';
+
+$query = "SELECT * from product;";
+
+$data = mysqli_query($conn, $query);
+$total = mysqli_num_rows($data);
+
+while ($result = mysqli_fetch_assoc($data)) {
+    echo "
+    <div class='container'>
+        <div class='row'>
+            <div class='col-sm'>
+                <div class='card style='width: 20rem;'>
+                <img class='card-img-top' src='" . $result["image"] . "' alt='Card image'>
+                <div class='card-body'>
+                     <h5 class='card-title'>" . $result["prod_name"] . "</h5>
+                     <p class='card-text'>" . $result["description"] . "</p>
+                    <p class='card-text'>" . $result["unit"] . "</p>
+                    <h5 class='card-text'>" . $result["price"] . "</h5>
+                    <a href='addtocart.php' class='btn btn-primary'>Add to card</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+";
+}
+
+?>
