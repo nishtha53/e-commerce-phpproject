@@ -34,8 +34,12 @@ if (!isset($_SESSION['email'])) {
         display: block;
         margin-right: auto;
         margin-left: auto;
+        background-color: #E85B72;
+        border: #E85B72;
     }
-
+    .center-btn:hover{
+        background-color: #E85B72 !important;
+    }
     .card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         transition: 0.3s;
@@ -59,7 +63,7 @@ if (!isset($_SESSION['email'])) {
 
             </ul>
             <ul style="list-style: none;">
-                <li class="nav-item"><a class="nav-link" href="#"><img src="images/add-to-basket.png" width="40px" height="40px"></a></li>
+                <li class="nav-item"><a class="nav-link" href="addtocart.php"><img src="images/add-to-basket.png" width="40px" height="40px"></a></li>
             </ul>
             <?php
             if ($login == 0) {
