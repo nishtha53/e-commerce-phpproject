@@ -37,9 +37,11 @@ if (!isset($_SESSION['email'])) {
         background-color: #E85B72;
         border: #E85B72;
     }
-    .center-btn:hover{
+
+    .center-btn:hover {
         background-color: #E85B72 !important;
     }
+
     .card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         transition: 0.3s;
@@ -73,7 +75,7 @@ if (!isset($_SESSION['email'])) {
             <?php
             } else {
             ?>
-                <a class="btn btn-warning mx-4" href="logout.php">Logout</a>
+                <a class="btn btn-warning mx-4" href="logout.php" onclick="logout()">Logout</a>
             <?php
             }
             ?>
@@ -99,7 +101,7 @@ if (!isset($_SESSION['email'])) {
                             <div class='card-body'>
                                 <h5 class='card-title text-center'>Product Name: <?php echo $result["prod_name"];  ?></h5>
                                 <p class='card-text text-muted text-center'>Description: <?php echo $result["description"];  ?></p>
-                                <h5 class='card-text text-center'>₹  <?php echo $result["price"];  ?></h5>
+                                <h5 class='card-text text-center'>₹ <?php echo $result["price"];  ?></h5>
                                 <a href='addtocart.php' class='btn btn-primary center-btn'>Add to cart</a>
                             </div>
                         </div>
@@ -169,6 +171,16 @@ if (!isset($_SESSION['email'])) {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        function logout() {
+            if (confirm("Are you sure you want to log out!")) {
+                location.href = "logout.php"
+            } else {
+                location.href = "#";
+            }
+        }
+    </script>
+
 </body>
 
 </html>
