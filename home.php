@@ -1,3 +1,22 @@
+<?php
+    include "./admin/connection.php";
+    session_start();
+    if(!isset($_SESSION['email']))
+    {
+        $email = "";
+        $login = 0;
+    }
+    else{
+        $login = 1;
+        $email = $_SESSION['email'];
+        $qry = "select * from user where email = '$email'";
+		$sql = mysqli_query($conn, $qry);
+		$result = mysqli_fetch_assoc($sql);
+		$uname = $result['username'];
+        echo $email;
+    }
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -35,8 +54,20 @@
             <ul style="list-style: none;">
                 <li class="nav-item"><a class="nav-link" href="#"><img src="images/add-to-basket.png" width="40px" height="40px"></a></li>
             </ul>
-            <a class="btn btn-warning mx-4" href="login.php">Login</a>
+            <?php
+            if($login == 0)
+            {
+                ?>
+                <a class="btn btn-warning mx-4" href="login.php">Login</a>
             <a class="btn btn-warning mx-4" href="register.php">Register</a>
+            <?php
+            }
+            else{
+                ?>
+                <a class="btn btn-warning mx-4" href="logout.php">Logout</a>
+                <?php
+            }
+            ?>   
         </div> <!-- navbar-collapse.// -->
 
         </div>
@@ -53,7 +84,7 @@
             if ($total) {
                 while ($result = mysqli_fetch_assoc($data)) {
             ?>
-                    <div class='col md-3'>
+                    <div class='col-md-4'>
                         <div class='card' style='width: 18rem;'>
                             <img class='card-img-top' src='./admin/<?php echo $result["image"];  ?>' alt='Card image'>
                             <div class='card-body'>
@@ -64,8 +95,6 @@
                             </div>
                         </div>
                     </div>
-        </div>
-
 <?php
 
                 }
@@ -73,6 +102,8 @@
                 echo "No records found!";
             }
 ?>
+       </div>
+    </div>
 <!--- Footer started  ---->
 <footer class="site-footer">
     <div class="container">
