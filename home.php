@@ -16,6 +16,8 @@
 </head>
 
 <body>
+
+<!---- header started---->
     <nav class="navbar  navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#"><img src="images/logo.jpeg" height="80px" width="150px" /> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
@@ -38,7 +40,7 @@
 
         </div>
     </nav>
-
+<!----- header end --->
     <?php
 
 include 'admin/connection.php';
@@ -56,7 +58,6 @@ while ($result = mysqli_fetch_assoc($data)) {
         <div class='card-body'>
              <h5 class='card-title'>" . $result["prod_name"] . "</h5>
              <p class='card-text'>" . $result["description"] . "</p>
-            <p class='card-text'>" . $result["unit"] . "</p>
             <h5 class='card-text'>" . $result["price"] . "</h5>
             <a href='addtocart.php' class='btn btn-primary'>Add to card</a>
         </div>
@@ -66,7 +67,7 @@ while ($result = mysqli_fetch_assoc($data)) {
 }
 ?>
 
-
+<!--- Footer started  ---->
     <footer class="site-footer">
         <div class="container">
             <div class="row">
@@ -102,8 +103,8 @@ while ($result = mysqli_fetch_assoc($data)) {
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">
-                    <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
-                        <a href="#">Scanfcode</a>.
+                    <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
+                        <a href="#">Medico</a>.
                     </p>
                 </div>
 

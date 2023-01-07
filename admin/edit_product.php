@@ -159,6 +159,10 @@ if(isset($_POST['update']))
     $query = "UPDATE product SET prod_name='$pname',description='$description',unit='$unit',price='$price',image='$folder' WHERE prod_no='$id'";
     
     $q = mysqli_query($conn,$query);
+    if($q)
+    {
+        echo "<script>alert('Edited product!');location='product.php';</script>";
+    }
 }	
 
 ?>

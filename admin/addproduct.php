@@ -149,7 +149,7 @@ include("./connection.php");
 
                     if ($qq) {
                         //echo "Data inserted!";
-                        echo "<a href='product.php'></a>";
+                        echo "<script>alert('Product Added!');location='product.php';</script>";
                        
                     } else {
                         echo "data not inserted";
