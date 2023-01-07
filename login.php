@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -134,9 +141,8 @@
 
 <?php
 
+
 include("./admin/connection.php");
-
-
 
 if (isset($_POST['login'])) {
 	$email = $_POST["email"];
@@ -151,15 +157,14 @@ if (isset($_POST['login'])) {
 		$sql = mysqli_query($conn, $qry);
     	$result = mysqli_fetch_assoc($sql);
 		if (mysqli_num_rows($sql) > 0) {
-
-			// session_start();
-			// $_SESSION['email'] = $email;
-			// echo $email;
+			$_SESSION['email'] = $email;
+			echo $email;
 			echo "<script>alert('Login success!');location='home.php';</script>";
 		} else {
 			echo "<script>alert('User doesnot exist!')</script>";
 		}
 	}
 }
+
 
 ?>

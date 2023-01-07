@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2023 at 11:35 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- Generation Time: Jan 07, 2023 at 10:39 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,11 +41,11 @@ CREATE TABLE `cart` (
 --
 
 CREATE TABLE `contact` (
-  `fname` varchar(20) COLLATE utf8mb4_unicode_nopad_ci NOT NULL,
-  `lname` varchar(20) COLLATE utf8mb4_unicode_nopad_ci NOT NULL,
-  `email` varchar(30) COLLATE utf8mb4_unicode_nopad_ci NOT NULL,
+  `fname` varchar(20) NOT NULL,
+  `lname` varchar(20) NOT NULL,
+  `email` varchar(30) NOT NULL,
   `contact` int(10) NOT NULL,
-  `message` varchar(50) COLLATE utf8mb4_unicode_nopad_ci NOT NULL
+  `message` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_nopad_ci;
 
 --
@@ -92,11 +92,11 @@ CREATE TABLE `order_table` (
 
 CREATE TABLE `product` (
   `prod_no` int(4) NOT NULL,
-  `prod_name` varchar(20) COLLATE utf8mb4_unicode_nopad_ci NOT NULL,
-  `description` varchar(50) COLLATE utf8mb4_unicode_nopad_ci NOT NULL,
-  `unit` varchar(10) COLLATE utf8mb4_unicode_nopad_ci NOT NULL,
+  `prod_name` varchar(20) NOT NULL,
+  `description` varchar(50) NOT NULL,
+  `unit` varchar(10) NOT NULL,
   `price` int(10) NOT NULL,
-  `image` varchar(500) COLLATE utf8mb4_unicode_nopad_ci NOT NULL
+  `image` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_nopad_ci;
 
 --
@@ -104,9 +104,10 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`prod_no`, `prod_name`, `description`, `unit`, `price`, `image`) VALUES
-(1, 'tshirt', 'men,women', '2 piece', 100, 'assets/img/product-2.jpg'),
 (2, 'shirt', 'men ', '1', 100, 'assets/img/product-4.jpg'),
-(3, 'prod', 'ncbcn', '2', 120, 'assets/img/product-4.jpg');
+(55, 'pant', 'men,women', '12', 125, 'assets/img/about-medicine.png'),
+(56, 'vfd', 'v', '12', 120, 'assets/img/add-to-basket.png'),
+(57, 'jfnfn', 'jbffn', 'bhfndn', 12, 'assets/img/Sign up-rafiki.png');
 
 -- --------------------------------------------------------
 
@@ -116,22 +117,25 @@ INSERT INTO `product` (`prod_no`, `prod_name`, `description`, `unit`, `price`, `
 
 CREATE TABLE `user` (
   `user_id` int(10) NOT NULL,
-  `username` varchar(30) COLLATE utf8mb4_unicode_nopad_ci NOT NULL,
-  `password` varchar(20) COLLATE utf8mb4_unicode_nopad_ci NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `confirm_password` int(11) NOT NULL,
   `contact_no` int(10) NOT NULL,
-  `address` varchar(100) COLLATE utf8mb4_unicode_nopad_ci DEFAULT NULL,
-  `email` varchar(20) COLLATE utf8mb4_unicode_nopad_ci NOT NULL
+  `address` varchar(100) DEFAULT NULL,
+  `email` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_nopad_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `username`, `password`, `contact_no`, `address`, `email`) VALUES
-(1, 'nish', 'nish', 2147483647, NULL, 'nishthathakkar0503@g'),
-(2, 'user', 'nish', 2147483647, NULL, 'nishtha@gmail.com'),
-(4, 'abc', 'nish', 2147483647, NULL, 'abc@gmail.com'),
-(5, 'nish', 'nish', 13225154, NULL, 'nish12@gmail.com');
+INSERT INTO `user` (`user_id`, `username`, `password`, `confirm_password`, `contact_no`, `address`, `email`) VALUES
+(1, 'nish', 'nish', 0, 2147483647, NULL, 'nishthathakkar0503@g'),
+(2, 'user', 'nish', 0, 2147483647, NULL, 'nishtha@gmail.com'),
+(4, 'abc', 'nish', 0, 2147483647, NULL, 'abc@gmail.com'),
+(5, 'nish', 'nish', 0, 13225154, NULL, 'nish12@gmail.com'),
+(6, 'simruti', 'simruti', 0, 1252, NULL, 'simruti@gmail.com'),
+(7, 'avani', 'avani', 0, 5551, NULL, 'avani@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -185,13 +189,13 @@ ALTER TABLE `order_table`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `prod_no` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `prod_no` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
