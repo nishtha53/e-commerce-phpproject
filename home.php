@@ -99,7 +99,7 @@ if (!isset($_SESSION['email'])) {
                             <div class='card-body'>
                                 <h5 class='card-title text-center'>Product Name: <?php echo $result["prod_name"];  ?></h5>
                                 <p class='card-text text-muted text-center'>Description: <?php echo $result["description"];  ?></p>
-                                <h5 class='card-text text-center'>Price: <?php echo $result["price"];  ?></h5>
+                                <h5 class='card-text text-center'>₹  <?php echo $result["price"];  ?></h5>
                                 <a href='addtocart.php' class='btn btn-primary center-btn'>Add to card</a>
                             </div>
                         </div>
