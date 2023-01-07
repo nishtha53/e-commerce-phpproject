@@ -58,7 +58,7 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Password</label>
-							<input type="password" class="form-control" id="exampleInputPassword1" name="pass"  placeholder="Password">
+							<input type="password" class="form-control" id="exampleInputPassword1" name="password"  placeholder="Password">
 						</div>
 						<div class="form-check">
 							<input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -142,7 +142,7 @@
 	if(isset($_POST['login']))
 	{
 		$email = $_POST["email"];
-		$pass = $_POST["pass"];
+		$pass = $_POST["password"];
 
    	//	echo "<script>alert('$email');</script>";
 
@@ -164,5 +164,36 @@
 	}
 }
 	
+// echo $email;
+// echo $pass;
+
+// if(!empty($_SESSION["user_id"])){
+// 	header("Location: home.php");
+//   }
+//   if(isset($_POST["submit"])){
+// 	$email = $_POST["email"];
+//     $pass = $_POST["password"];
+// 	$result = mysqli_query($conn, "select * from user where email = '$email' AND password = '$pass'");
+// 	$row = mysqli_fetch_assoc($result);
+// 	if(mysqli_num_rows($result) > 0){
+// 	  if($pass == $row['password']){
+// 		$_SESSION["login"] = true;
+// 		$_SESSION["id"] = $row["user_id"];
+// 		echo "<script>alert('Login success');location='home.php';</script>";
+// 	  }
+// 	// else  if($row['email'] == 'admin@gmail.com')
+// 	// {
+// 	// 	echo "<script>alert('Login success');location='admin/index.php';</script>";
+// 	// }
+// 	else{
+// 		echo
+// 		"<script> alert('Wrong Password'); </script>";
+// 	  }
+// 	}
+// 	else{
+// 	  echo
+// 	  "<script> alert('User Not Registered'); </script>";
+// 	}
+//   }
 
 ?>

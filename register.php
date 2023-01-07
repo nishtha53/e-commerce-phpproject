@@ -69,10 +69,10 @@
               <label for="exampleInputPassword1">Password</label>
               <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
             </div>
-            <!-- <div class="form-group">
+            <div class="form-group">
               <label for="exampleInputPassword2">Re-type Password</label>
               <input type="password" class="form-control" id="exampleInputPassword2" name="rpassword" placeholder="Re-type Password">
-            </div> -->
+            </div>
             <p><a href="login.php" class="text-muted">Already Register? Login</a></p>
             <input type="submit" class="btn btn-primary" id="submit-btn" value="Register" name="submit"></input>
 
@@ -147,20 +147,51 @@
 <?php
 
 include "./admin/connection.php";
-if (isset($_POST["submit"])) {
+// if (isset($_POST["submit"])) {
+//   $unm = $_POST["uname"];
+//   $pass = $_POST["password"];
+//   $contact = $_POST["contact"];
+//   // $add = $_POST["address"];
+//   $email = $_POST["email"];
+//   // echo "<script>alert('$unm,$pass,$contact,$email');</script>";
+
+
+//   $qry = "insert into user(username,password,contact_no,email) values('$unm','$pass','$contact','$email')";
+//   $sql = mysqli_query($conn, $qry);
+//   if ($sql) {
+//     echo "<script>alert('Registeration is done');location='login.php';</script>";
+//   }
+// }
+
+if(!empty($_SESSION["user_id"])){
+  header("Location: home.php");
+}
+if(isset($_POST["submit"])){
   $unm = $_POST["uname"];
   $pass = $_POST["password"];
   $contact = $_POST["contact"];
-  // $add = $_POST["address"];
+  $add = $_POST["address"];
   $email = $_POST["email"];
-  // echo "<script>alert('$unm,$pass,$contact,$email');</script>";
-
-
-  $qry = "insert into user(username,password,contact_no,email) values('$unm','$pass','$contact','$email')";
-  $sql = mysqli_query($conn, $qry);
-  if ($sql) {
-    echo "<script>alert('Registeration is done');location='login.php';</script>";
+  $confirmpassword = $_POST["rpassword"];
+  $duplicate = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username' OR email = '$email'");
+  if(mysqli_num_rows($duplicate) > 0){
+    echo
+    "<script> alert('Username or Email Has Already Taken'); </script>";
+  }
+  else{
+    if($pass == $confirmpassword){
+      $query = "insert into user(username,password,contact_no,email) values('$unm','$pass','$contact','$email')";
+      mysqli_query($conn, $query);
+      echo
+      "<script> alert('Registration Successful'); location='login.php';</script>";
+    }
+    else{
+      echo
+      "<script> alert('Password Does Not Match'); </script>";
+    }
   }
 }
+
+
 
 ?>
