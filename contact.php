@@ -48,7 +48,7 @@
         input[type="text"],
         input[type="text"],
         input[type="email"],
-        input[type="tel"] {
+        input[type="number"] {
             border: 1px solid #dbdbdb;
             border-radius: 2px;
             color: #333;
