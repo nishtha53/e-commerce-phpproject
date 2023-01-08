@@ -11,7 +11,6 @@ if (!isset($_SESSION['email'])) {
     $sql = mysqli_query($conn, $qry);
     $result = mysqli_fetch_assoc($sql);
     $uname = $result['username'];
-    echo $email;
 }
 ?>
 
@@ -64,6 +63,11 @@ if (!isset($_SESSION['email'])) {
                 <li class="nav-item"><a class="nav-link mx-4" href="contact.php">Contact us</a></li>
 
             </ul>
+            <!-- <ul style="list-style: none;">
+                <li class="nav-item">
+                    <h4>Welcome, <?php echo  $uname;  ?></h4>
+                </li>
+            </ul> -->
             <ul style="list-style: none;">
                 <li class="nav-item"><a class="nav-link" href="addtocart.php"><img src="images/add-to-basket.png" width="40px" height="40px"></a></li>
             </ul>
@@ -102,7 +106,7 @@ if (!isset($_SESSION['email'])) {
                                 <h5 class='card-title text-center'>Product Name: <?php echo $result["prod_name"];  ?></h5>
                                 <p class='card-text text-muted text-center'>Description: <?php echo $result["description"];  ?></p>
                                 <h5 class='card-text text-center'>₹ <?php echo $result["price"];  ?></h5>
-                                <a href='addtocart.php' class='btn btn-primary center-btn'>Add to cart</a>
+                                <a href="addtocart.php?id=<?php $_SESSION['prod_no'] = $result['prod_no']; echo $_SESSION['prod_no'] ?>" class='btn btn-primary center-btn'>Add to cart</a>
                             </div>
                         </div>
                     </div>
