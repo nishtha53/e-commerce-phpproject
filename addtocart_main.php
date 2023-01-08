@@ -14,28 +14,34 @@
 </head>
 
 <body>
-<?php
+    <div class="row">
+        <?php
 
-session_start();
+        session_start();
 
-// require('addtocart.php?id='.$_SESSION['prod_no'].'');
+        // require('addtocart.php?id='.$_SESSION['prod_no'].'');
 
 
-    if(isset($_SESSION['product'])){
+
+        if (isset($_SESSION['cart'])) {
+            foreach ($_SESSION['cart'] as $item) {
         ?>
-            <div class='col-md-4'>
-                <div class='card' style='width: 22rem;'>
-                    <img class='card-img-top' src='./admin/<?php echo $_SESSION['product']["image"];  ?>' alt='Card image'>
-                    <div class='card-body'>
-                        <h5 class='card-title text-center'>Product Name: <?php echo $_SESSION['product']["prod_name"];  ?></h5>
-                        <p class='card-text text-muted text-center'>Description: <?php echo $_SESSION['product']["description"];  ?></p>
-                        <h5 class='card-text text-center'>₹ <?php echo $_SESSION['product']["price"];  ?></h5>
+                <div class='col-md-4'>
+                    <div class='card' style='width: 22rem;'>
+                        <img class='card-img-top' src='./admin/<?php echo $item["image"];  ?>' alt='Card image'>
+                        <div class='card-body'>
+                            <h5 class='card-title text-center'>Product Name: <?php echo $item["prod_name"];  ?></h5>
+                            <p class='card-text text-muted text-center'>Description: <?php echo $item["description"];  ?></p>
+                            <h5 class='card-text text-center'>₹ <?php echo $item["price"];  ?></h5>
+                        </div>
                     </div>
                 </div>
-            </div>
         <?php
-    }
-?>
+            }
+        }
+        ?>
+    </div>
 
 </body>
+
 </html>

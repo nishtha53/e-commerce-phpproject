@@ -2,6 +2,10 @@
 
 session_start();
 
+$arr = array();
+//initializing the cart
+$_SESSION['cart'] = $arr;
+
 ?>
 
 
@@ -155,7 +159,7 @@ if (isset($_POST['login'])) {
 	} else if ($email  != 'admin@gmail.com' && $pass != '12345') {
 		$qry = "select * from user where email = '$email' AND password = '$pass'";
 		$sql = mysqli_query($conn, $qry);
-    	$result = mysqli_fetch_assoc($sql);
+		$result = mysqli_fetch_assoc($sql);
 		if (mysqli_num_rows($sql) > 0) {
 			$_SESSION['email'] = $email;
 			echo $email;
@@ -168,3 +172,4 @@ if (isset($_POST['login'])) {
 
 
 ?>
+Footer
