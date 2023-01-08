@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2023 at 10:39 AM
+-- Generation Time: Jan 08, 2023 at 06:16 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -61,6 +61,19 @@ INSERT INTO `contact` (`fname`, `lname`, `email`, `contact`, `message`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `order_no` int(4) NOT NULL,
+  `user_id` int(4) NOT NULL,
+  `order_date` date NOT NULL,
+  `total_amount` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_nopad_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `order_detail`
 --
 
@@ -69,19 +82,6 @@ CREATE TABLE `order_detail` (
   `prod_no` int(4) NOT NULL,
   `qty_odered` int(10) NOT NULL,
   `price` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_nopad_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `order_table`
---
-
-CREATE TABLE `order_table` (
-  `order_no` int(4) NOT NULL,
-  `user_id` int(4) NOT NULL,
-  `order_date` date NOT NULL,
-  `total_amount` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_nopad_ci;
 
 -- --------------------------------------------------------
@@ -104,10 +104,10 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`prod_no`, `prod_name`, `description`, `unit`, `price`, `image`) VALUES
-(2, 'shirt', 'men ', '1', 100, 'assets/img/product-4.jpg'),
-(55, 'pant', 'men,women', '12', 125, 'assets/img/about-medicine.png'),
-(56, 'vfd', 'v', '12', 120, 'assets/img/add-to-basket.png'),
-(57, 'jfnfn', 'jbffn', 'bhfndn', 12, 'assets/img/Sign up-rafiki.png');
+(1, 'shirt', 'men ', '1', 100, 'assets/img/product-4.jpg'),
+(2, 'pant', 'men,women', '12', 125, 'assets/img/about-medicine.png'),
+(3, 'vfd', 'v', '12', 120, 'assets/img/add-to-basket.png'),
+(4, 'plazo', 'plazo is for women', '4', 120, 'assets/img/slides-2.jpg');
 
 -- --------------------------------------------------------
 
@@ -119,10 +119,10 @@ CREATE TABLE `user` (
   `user_id` int(10) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(20) NOT NULL,
-  `confirm_password` int(11) NOT NULL,
+  `confirm_password` varchar(20) NOT NULL,
   `contact_no` int(10) NOT NULL,
   `address` varchar(100) DEFAULT NULL,
-  `email` varchar(20) NOT NULL
+  `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_nopad_ci;
 
 --
@@ -130,12 +130,16 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `password`, `confirm_password`, `contact_no`, `address`, `email`) VALUES
-(1, 'nish', 'nish', 0, 2147483647, NULL, 'nishthathakkar0503@g'),
-(2, 'user', 'nish', 0, 2147483647, NULL, 'nishtha@gmail.com'),
-(4, 'abc', 'nish', 0, 2147483647, NULL, 'abc@gmail.com'),
-(5, 'nish', 'nish', 0, 13225154, NULL, 'nish12@gmail.com'),
-(6, 'simruti', 'simruti', 0, 1252, NULL, 'simruti@gmail.com'),
-(7, 'avani', 'avani', 0, 5551, NULL, 'avani@gmail.com');
+(1, 'nish', 'nish', '0', 2147483647, NULL, 'nishthathakkar0503@g'),
+(2, 'user', 'nish', '0', 2147483647, NULL, 'nishtha@gmail.com'),
+(4, 'abc', 'nish', '0', 2147483647, NULL, 'abc@gmail.com'),
+(5, 'nish', 'nish', '0', 13225154, NULL, 'nish12@gmail.com'),
+(6, 'simruti', 'simruti', '0', 1252, NULL, 'simruti@gmail.com'),
+(7, 'avani', 'avani', '0', 5551, NULL, 'avani@gmail.com'),
+(8, 'nishu', 'nish', '0', 4525, NULL, 'nishu@gmail.com'),
+(9, 'admin', '12345', '12345', 1252, NULL, 'admin@gmail.com'),
+(10, 'nishtha', 'nish', '0', 2147483647, NULL, 'nishtha.work0503@gma'),
+(11, 'mragank', 'mragank', '0', 2147483647, NULL, 'mragank@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -145,9 +149,14 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `confirm_password`, `cont
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`cart_no`),
-  ADD KEY `prod_no` (`prod_no`),
-  ADD KEY `user_id` (`user_id`);
+  ADD PRIMARY KEY (`cart_no`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_no`),
+  ADD KEY `id` (`user_id`);
 
 --
 -- Indexes for table `order_detail`
@@ -155,13 +164,6 @@ ALTER TABLE `cart`
 ALTER TABLE `order_detail`
   ADD KEY `od` (`order_no`),
   ADD KEY `prod` (`prod_no`);
-
---
--- Indexes for table `order_table`
---
-ALTER TABLE `order_table`
-  ADD PRIMARY KEY (`order_no`),
-  ADD KEY `id` (`user_id`);
 
 --
 -- Indexes for table `product`
@@ -180,46 +182,39 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `order_table`
+-- AUTO_INCREMENT for table `orders`
 --
-ALTER TABLE `order_table`
+ALTER TABLE `orders`
   MODIFY `order_no` int(4) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `prod_no` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `prod_no` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `cart`
+-- Constraints for table `orders`
 --
-ALTER TABLE `cart`
-  ADD CONSTRAINT `prod_no` FOREIGN KEY (`prod_no`) REFERENCES `product` (`prod_no`),
-  ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
+ALTER TABLE `orders`
+  ADD CONSTRAINT `id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
 
 --
 -- Constraints for table `order_detail`
 --
 ALTER TABLE `order_detail`
-  ADD CONSTRAINT `od` FOREIGN KEY (`order_no`) REFERENCES `order_table` (`order_no`),
+  ADD CONSTRAINT `od` FOREIGN KEY (`order_no`) REFERENCES `orders` (`order_no`),
   ADD CONSTRAINT `prod` FOREIGN KEY (`prod_no`) REFERENCES `product` (`prod_no`);
-
---
--- Constraints for table `order_table`
---
-ALTER TABLE `order_table`
-  ADD CONSTRAINT `id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
