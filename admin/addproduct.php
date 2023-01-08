@@ -75,40 +75,47 @@ include("./connection.php");
     <!-- ======= Sidebar ======= -->
     <aside id="sidebar" class="sidebar">
 
-        <ul class="sidebar-nav" id="sidebar-nav">
+<ul class="sidebar-nav" id="sidebar-nav">
 
-            <li class="nav-item">
-                <a class="nav-link " href="index.php">
-                    <i class="bi bi-grid"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li><!-- End Dashboard Nav -->
-            <li class="nav-item">
-                <a class="nav-link " href="product.php">
-                    <i class="bi bi-grid"></i>
-                    <span>Product</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="order.php">
-                    <i class="bi bi-grid"></i>
-                    <span>Order details</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="contact.php">
-                    <i class="bi bi-grid"></i>
-                    <span>Contact us</span>
-                </a>
-            </li>
+  <li class="nav-item">
+    <a class="nav-link " href="index.php">
+      <i class="bi bi-grid"></i>
+      <span>Dashboard</span>
+    </a>
+  </li><!-- End Dashboard Nav -->
+  <li class="nav-item">
+    <a class="nav-link " href="user_admin.php">
+      <i class="bi bi-grid"></i>
+      <span>Users</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " href="product.php">
+      <i class="bi bi-grid"></i>
+      <span>Product</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " href="order.php">
+      <i class="bi bi-grid"></i>
+      <span>Order details</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " href="contact_admin.php">
+      <i class="bi bi-grid"></i>
+      <span>Contact us</span>
+    </a>
+  </li>
 
 
-        </ul>
+</ul>
 
-    </aside><!-- End Sidebar-->
+</aside><!-- End Sidebar-->
+
 
     <main id="main" class="main">
-
+        <h2>Add Product</h2><br>
         <div class="container">
             <form method="POST" enctype="multipart/form-data">
                 <div class="form-group">

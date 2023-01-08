@@ -71,70 +71,80 @@
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
 
-    <ul class="sidebar-nav" id="sidebar-nav">
+<ul class="sidebar-nav" id="sidebar-nav">
 
-      <li class="nav-item">
-        <a class="nav-link " href="index.php">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-      <li class="nav-item">
-        <a class="nav-link " href="product.php">
-          <i class="bi bi-grid"></i>
-          <span>Users</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="product.php">
-          <i class="bi bi-grid"></i>
-          <span>Product</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="order.php">
-          <i class="bi bi-grid"></i>
-          <span>Order details</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="contact_admin.php">
-          <i class="bi bi-grid"></i>
-          <span>Contact us</span>
-        </a>
-      </li>
+  <li class="nav-item">
+    <a class="nav-link " href="index.php">
+      <i class="bi bi-grid"></i>
+      <span>Dashboard</span>
+    </a>
+  </li><!-- End Dashboard Nav -->
+  <li class="nav-item">
+    <a class="nav-link " href="user_admin.php">
+      <i class="bi bi-grid"></i>
+      <span>Users</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " href="product.php">
+      <i class="bi bi-grid"></i>
+      <span>Product</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " href="order.php">
+      <i class="bi bi-grid"></i>
+      <span>Order details</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " href="contact_admin.php">
+      <i class="bi bi-grid"></i>
+      <span>Contact us</span>
+    </a>
+  </li>
 
 
-    </ul>
+</ul>
 
-  </aside><!-- End Sidebar-->
+</aside><!-- End Sidebar-->
+
 
 
   <main id="main" class="main">
-  <div class="card" style="width: 20rem;">
-      <div class="card-body">
-        <h5 class="card-title"><a href="user_admin.php">Users</a></h5>
-        <p class="card-text">View users who registered</p>
-      </div>
-    </div>
-    <div class="card" style="width: 20rem;">
-      <div class="card-body">
-        <h5 class="card-title"><a href="product.php">Product</a></h5>
-        <p class="card-text">Add update and delete prduct</p>
-      </div>
-    </div>
-    <div class="card" style="width: 20rem;">
-      <div class="card-body">
-        <h5 class="card-title"><a href="order.php">Order Details</a></h5>
-        <p class="card-text">See orders and its details</p>
-      </div>
-    </div>
-    <div class="card" style="width: 20rem;">
-      <div class="card-body">
-        <h5 class="card-title"><a href="contact_admin.php">Contact US</a></h5>
-        <p class="card-text">View Queries of Customer</p>
-      </div>
-    </div>
+
+  <?php
+
+include 'connection.php';
+
+$query = "SELECT * from user;";
+
+$data = mysqli_query($conn, $query);
+$total = mysqli_num_rows($data);
+
+
+?> 
+	<h2 class="text-center">View registered User</h2><br>
+<table class="table">
+<tr>
+			<th width="5%">#</th>
+			<th width="12%">User Name</th>
+			<th width="20%">Email</th>
+			<th width="10%">Contact</th>
+            <th width="10%">Password</th>
+		</tr>
+        <?php  
+            while ($result = mysqli_fetch_assoc($data)) {
+                echo "<tr>
+                <td>" . $result["user_id"] . "</td>
+                <td>" . $result["username"] . "</td>
+                <td>" . $result["email"] . "</td>
+                <td>" . $result["contact_no"] . "</td>
+                <td>" . $result["password"] . "</td>";
+            }
+            echo "</table>";
+        
+        ?>
   </main>
 
 
