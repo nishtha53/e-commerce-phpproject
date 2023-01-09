@@ -53,25 +53,25 @@
             <div class="form-group">
 
               <label for="exampleInputEmail1">Username</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="uname" placeholder="Enter username">
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="uname" placeholder="Enter username" required>
               <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>!-->
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Enter email">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Enter email" required>
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Contact Number</label>
-              <input type="number" class="form-control" id="exampleInputcontact" aria-describedby="emailHelp" name="contact" placeholder="Enter Contact Number">
+              <input type="number" class="form-control" id="exampleInputcontact" aria-describedby="emailHelp" name="contact" placeholder="Enter Contact Number" required>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+              <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password" required>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword2">Re-type Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword2" name="rpassword" placeholder="Re-type Password">
+              <input type="password" class="form-control" id="exampleInputPassword2" name="rpassword" placeholder="Re-type Password" required>
             </div>
             <p><a href="login.php" class="text-muted">Already Register? Login</a></p>
             <input type="submit" class="btn btn-primary" id="submit-btn" value="Register" name="submit"></input>
