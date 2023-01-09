@@ -69,7 +69,7 @@ if(isset($_SESSION["productcart"]) && !empty($_SESSION["productcart"])){
     }   
     $finalgrandtotal = array_sum($grandtotal);
 
-    echo "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td>Grand total is = ".$finalgrandtotal."</td></tr></table>";
+    echo "<tr><td></td><td></td><td></td><td></td><td>Grand total is = ".$finalgrandtotal."</td></tr></table>";
 
     echo "<a href='home.php' class='btn btn-info mb-5'>Buy More products </a>";
 }
