@@ -103,10 +103,14 @@ if (!isset($_SESSION['email'])) {
                         <div class='card' style='width: 22rem;'>
                             <img class='card-img-top' src='./admin/<?php echo $result["image"];  ?>' alt='Card image'>
                             <div class='card-body'>
-                                <h5 class='card-title text-center'>Product Name: <?php echo $result["prod_name"];  ?></h5>
-                                <p class='card-text text-muted text-center'>Description: <?php echo $result["description"];  ?></p>
+                                <h5 class='card-title text-center'><?php echo $result["prod_name"];  ?></h5>
+                                <p class='card-text text-muted text-center'><?php echo $result["description"];  ?></p>
                                 <h5 class='card-text text-center'>₹ <?php echo $result["price"];  ?></h5>
-                                <a href="addtocart.php?id=<?php $_SESSION['prod_no'] = $result['prod_no']; echo $_SESSION['prod_no'] ?>" class='btn btn-primary center-btn'>Add to cart</a>
+                                <form action="addtocart.php" method="post">
+                                    <input type="hidden" name="pid" value="<?php echo $result["prod_no"]; ?>">
+                                    <input value="1" class="form-control" style="width:100px;margin-left:100px;" type="number" name="qty" id="qty" min="1" max="10">
+                                    <br><input type="submit" name="sbtn" value="Add to cart" class="btn btn-primary center-btn">
+                                </form>
                             </div>
                         </div>
                     </div>

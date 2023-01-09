@@ -172,8 +172,8 @@ $total = mysqli_num_rows($data);
         <td>" . $result["unit"] . "</td>
         <td>" . $result["price"] . "</td>
         <td><img src='" . $result["image"] . "' alt='image' height='100px' width='100px' /></td>
-        <td><button class='btn btn-warning'><a href='edit_product.php?pid=$result[prod_no]'  class='text-white'>Edit</a></button></td>
-        <td><button class='btn btn-danger'><a href='delete_product.php?pid=$result[prod_no]' class='text-white'>Delete</a></button></td>";
+        <td><a href='edit_product.php?pid=$result[prod_no]'  class='text-white'><button class='btn btn-warning'>Edit</a></button></td>
+        <td><a href='delete_product.php?pid=$result[prod_no]' class='text-white'><button class='btn btn-danger'>Delete</a></button></td>";
 	}
 	echo "</table>";
 
