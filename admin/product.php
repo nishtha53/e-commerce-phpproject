@@ -92,12 +92,6 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="order.php">
-          <i class="bi bi-grid"></i>
-          <span>Order details</span>
-        </a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link " href="contact_admin.php">
           <i class="bi bi-grid"></i>
           <span>Contact us</span>
@@ -147,7 +141,7 @@ $total = mysqli_num_rows($data);
 
 ?> 
 
-	<h2 >View Products</h2><br>
+	<h2 class="text-center">View Products</h2><br>
     <button class="btn btn-primary"><a href="./addproduct.php" class="text-white">Add Product</a></button><br><br>
 	<table class="table">
 		<tr>

@@ -100,7 +100,7 @@ if (!isset($_SESSION['email'])) {
                 while ($result = mysqli_fetch_assoc($data)) {
             ?>
                     <div class='col-md-4'>
-                        <div class='card' style='width: 22rem;'>
+                        <div class='card m-4' style='width: 22rem; '>
                             <img class='card-img-top' src='./admin/<?php echo $result["image"];  ?>' alt='Card image'>
                             <div class='card-body'>
                                 <h5 class='card-title text-center'><?php echo $result["prod_name"];  ?></h5>

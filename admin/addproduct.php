@@ -96,12 +96,6 @@ include("./connection.php");
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link " href="order.php">
-      <i class="bi bi-grid"></i>
-      <span>Order details</span>
-    </a>
-  </li>
-  <li class="nav-item">
     <a class="nav-link " href="contact_admin.php">
       <i class="bi bi-grid"></i>
       <span>Contact us</span>

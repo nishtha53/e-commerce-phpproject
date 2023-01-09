@@ -75,10 +75,19 @@ if(isset($_SESSION["productcart"]) && !empty($_SESSION["productcart"])){
 }
 else{
     echo "<center><h1>cart is empty</h1></center>";
-    echo "<a href='home.php'>Buy Now</a>";
+    echo "<a href='home.php' class='btn btn-primary'>Buy Now</a>";
 }
 
 ?>
 
+<!-- <button onclick="placeOrder()">Place order</button> -->
+
+
+<!-- <script>
+        function placeOrder()
+        {
+            
+        }
+</script> -->
 </body>
 </html>

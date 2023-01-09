@@ -69,10 +69,10 @@ $_SESSION['cart'] = $arr;
 							<label for="exampleInputPassword1">Password</label>
 							<input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
 						</div>
-						<div class="form-check">
+						<!-- <div class="form-check">
 							<input type="checkbox" class="form-check-input" id="exampleCheck1">
 							<label class="form-check-label" for="exampleCheck1">Remember me</label>
-						</div><br>
+						</div><br> -->
 						<p><a href="register.php" class="text-muted">Need to Register? Signup</a></p>
 						<input type="submit" class="btn btn-primary" id="submit-btn" value="Login" name="login"></input>
 					</form>

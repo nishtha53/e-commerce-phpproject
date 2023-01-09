@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 08, 2023 at 06:16 PM
+-- Generation Time: Jan 09, 2023 at 01:41 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -61,32 +61,6 @@ INSERT INTO `contact` (`fname`, `lname`, `email`, `contact`, `message`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
---
-
-CREATE TABLE `orders` (
-  `order_no` int(4) NOT NULL,
-  `user_id` int(4) NOT NULL,
-  `order_date` date NOT NULL,
-  `total_amount` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_nopad_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `order_detail`
---
-
-CREATE TABLE `order_detail` (
-  `order_no` int(4) NOT NULL,
-  `prod_no` int(4) NOT NULL,
-  `qty_odered` int(10) NOT NULL,
-  `price` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_nopad_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `product`
 --
 
@@ -104,10 +78,8 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`prod_no`, `prod_name`, `description`, `unit`, `price`, `image`) VALUES
-(1, 'shirt', 'men ', '1', 100, 'assets/img/product-4.jpg'),
-(2, 'pant', 'men,women', '12', 125, 'assets/img/about-medicine.png'),
-(3, 'vfd', 'v', '12', 120, 'assets/img/add-to-basket.png'),
-(4, 'plazo', 'plazo is for women', '4', 120, 'assets/img/slides-2.jpg');
+(1, 'Dolo 650mg Strip Of ', 'Dolo 650 Tablet is a medicine used to relieve pain', '1', 100, 'assets/img/1.jpeg'),
+(2, 'Omnigel', 'Omnigel is scientifically formulated, Diclofenac G', '1', 150, 'assets/img/3.jpeg');
 
 -- --------------------------------------------------------
 
@@ -152,20 +124,6 @@ ALTER TABLE `cart`
   ADD PRIMARY KEY (`cart_no`);
 
 --
--- Indexes for table `orders`
---
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`order_no`),
-  ADD KEY `id` (`user_id`);
-
---
--- Indexes for table `order_detail`
---
-ALTER TABLE `order_detail`
-  ADD KEY `od` (`order_no`),
-  ADD KEY `prod` (`prod_no`);
-
---
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -182,39 +140,16 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `orders`
---
-ALTER TABLE `orders`
-  MODIFY `order_no` int(4) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `prod_no` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `prod_no` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `orders`
---
-ALTER TABLE `orders`
-  ADD CONSTRAINT `id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
-
---
--- Constraints for table `order_detail`
---
-ALTER TABLE `order_detail`
-  ADD CONSTRAINT `od` FOREIGN KEY (`order_no`) REFERENCES `orders` (`order_no`),
-  ADD CONSTRAINT `prod` FOREIGN KEY (`prod_no`) REFERENCES `product` (`prod_no`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
