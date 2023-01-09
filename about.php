@@ -1,3 +1,20 @@
+<?php
+include "./admin/connection.php";
+session_start();
+if (!isset($_SESSION['email'])) {
+    $email = "";
+    $login = 0;
+} else {
+    $login = 1;
+    $email = $_SESSION['email'];
+    $qry = "select * from user where email = '$email'";
+    $sql = mysqli_query($conn, $qry);
+    $result = mysqli_fetch_assoc($sql);
+    $uname = $result['username'];
+}
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -33,8 +50,19 @@
             <ul style="list-style: none;">
                 <li class="nav-item"><a class="nav-link" href="#"><img src="images/add-to-basket.png" width="40px" height="40px"></a></li>
             </ul>
-            <a class="btn btn-warning mx-4" href="login.php">Login</a>
-            <a class="btn btn-warning mx-4" href="register.php">Register</a>
+            <?php
+            if ($login == 0) {
+            ?>
+                <a class="btn btn-warning mx-4" href="login.php">Login</a>
+                <a class="btn btn-warning mx-4" href="register.php">Register</a>
+            <?php
+            } else {
+            ?>
+                <h4>Welcome, <?php echo  $uname;  ?></h4>
+                <a class="btn btn-warning mx-4" href="logout.php" onclick="logout()">Logout</a>
+            <?php
+            }
+            ?>
         </div> <!-- navbar-collapse.// -->
     </nav>
 

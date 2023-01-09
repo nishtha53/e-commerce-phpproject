@@ -79,15 +79,5 @@ else{
 }
 
 ?>
-
-<!-- <button onclick="placeOrder()">Place order</button> -->
-
-
-<!-- <script>
-        function placeOrder()
-        {
-            
-        }
-</script> -->
 </body>
 </html>

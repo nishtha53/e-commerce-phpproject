@@ -63,11 +63,6 @@ if (!isset($_SESSION['email'])) {
                 <li class="nav-item"><a class="nav-link mx-4" href="contact.php">Contact us</a></li>
 
             </ul>
-            <!-- <ul style="list-style: none;">
-                <li class="nav-item">
-                    <h4>Welcome, <?php echo  $uname;  ?></h4>
-                </li>
-            </ul> -->
             <ul style="list-style: none;">
                 <li class="nav-item"><a class="nav-link" href="addtocart.php"><img src="images/add-to-basket.png" width="40px" height="40px"></a></li>
             </ul>
@@ -79,6 +74,7 @@ if (!isset($_SESSION['email'])) {
             <?php
             } else {
             ?>
+                <h4>Welcome, <?php echo  $uname;  ?></h4>
                 <a class="btn btn-warning mx-4" href="logout.php" onclick="logout()">Logout</a>
             <?php
             }
